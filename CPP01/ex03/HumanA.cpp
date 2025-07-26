@@ -1,7 +1,10 @@
-#include "HumanA.h"
-#include "Weapon.h"
+#include "HumanA.hpp"
 
-HumanA::HumanA(/* args */){}
+// construcor humanA
+HumanA::HumanA(const std::string &name, Weapon &weapon) : name(name), weapon(weapon) {}
 
-HumanA::~HumanA()
-{}
+//attack humanA
+void HumanA::attack() const
+{
+  std::cout << name << " attacks with their " << weapon.getType() << std::endl;
+}
