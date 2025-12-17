@@ -6,11 +6,15 @@
 /*   By: iel-asef <iel-asef@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 19:44:13 by iel-asef          #+#    #+#             */
-/*   Updated: 2025/12/16 19:44:46 by iel-asef         ###   ########.fr       */
+/*   Updated: 2025/12/17 23:21:49 by iel-asef         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
+#include "Ice.hpp"
+#include "Cure.hpp"
+#include "Character.hpp"
+#include "IMateriaSource.hpp"
+#include "MateriaSource.hpp"
 
 int main()
 {

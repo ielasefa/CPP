@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iel-asef <iel-asef@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/16 22:19:45 by iel-asef          #+#    #+#             */
-/*   Updated: 2025/12/17 22:55:00 by iel-asef         ###   ########.fr       */
+/*   Created: 2025/12/17 22:22:00 by iel-asef          #+#    #+#             */
+/*   Updated: 2025/12/17 22:19:58 by iel-asef         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP_4242
-#define AMATERIA_HPP_4242
+#ifndef MATERIASOURCE_HPP
+#define MATERIASOURCE_HPP
 
 #include <string>
-#include <iostream>
+#include "AMateria.hpp"
+#include "IMateriaSource.hpp"
 
-class ICharacter;
-
-class AMateria
+class MateriaSource : public IMateriaSource
 {
-protected:
-    std::string type;
+	private:
+		AMateria* _learned[4];
+	public:
+		MateriaSource();
+		MateriaSource(const MateriaSource& other);
+		MateriaSource& operator=(const MateriaSource& other);
+		virtual ~MateriaSource();
 
-public:
-    AMateria(std::string const & type);
-    AMateria(AMateria const &copy);
-    AMateria & operator=(AMateria const &src);
-    virtual ~AMateria();
-
-    std::string const & getType() const;
-
-    virtual AMateria* clone() const = 0;
-    virtual void use(ICharacter& target);
+		void learnMateria(AMateria* m);
+		AMateria* createMateria(std::string const & type);
 };
 
 #endif
