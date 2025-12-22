@@ -14,40 +14,64 @@
 
 MateriaSource::MateriaSource()
 {
-	for (int i = 0; i < 4; ++i) _learned[i] = 0;
+	for (int i = 0; i < 4; ++i)
+		this->_learned[i] = 0;
 }
 
 MateriaSource::MateriaSource(MateriaSource const &copy)
 {
 	for (int i = 0; i < 4; ++i)
-		_learned[i] = copy._learned[i] ? copy._learned[i]->clone() : 0;
+	{
+		if (copy._learned[i])
+			this->_learned[i] = copy._learned[i]->clone();
+		else
+			this->_learned[i] = 0;
+	}
 }
 
-MateriaSource& MateriaSource::operator=(const MateriaSource& other)
+MateriaSource &MateriaSource::operator=(const MateriaSource &other)
 {
 	if (this != &other)
 	{
 		for (int i = 0; i < 4; ++i)
 		{
-			if (_learned[i]) { delete _learned[i]; _learned[i] = 0; }
-			if (other._learned[i]) _learned[i] = other._learned[i]->clone();
+			if (this->_learned[i])
+			{
+				delete this->_learned[i];
+				this->_learned[i] = 0;
+			}
+			if (other._learned[i])
+				this->_learned[i] = other._learned[i]->clone();
+			else
+				this->_learned[i] = 0;
 		}
 	}
-	return *this;
+	return (*this);
 }
 
 MateriaSource::~MateriaSource()
 {
 	for (int i = 0; i < 4; ++i)
-		if (_learned[i]) { delete _learned[i]; _learned[i] = 0; }
+	{
+		if (this->_learned[i])
+		{
+			delete this->_learned[i];
+			this->_learned[i] = 0;
+		}
+	}
 }
 
 void MateriaSource::learnMateria(AMateria* m)
 {
-	if (!m) return;
+	if (!m)
+		return;
 	for (int i = 0; i < 4; ++i)
 	{
-		if (!_learned[i]) { _learned[i] = m; return; }
+		if (!this->_learned[i])
+		{
+			this->_learned[i] = m;
+			return;
+		}
 	}
 }
 
@@ -55,8 +79,8 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 {
 	for (int i = 0; i < 4; ++i)
 	{
-		if (_learned[i] && _learned[i]->getType() == type)
-			return _learned[i]->clone();
+		if (this->_learned[i] && this->_learned[i]->getType() == type)
+			return (this->_learned[i]->clone());
 	}
-	return 0;
+	return (0);
 }

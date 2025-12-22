@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iel-asef <iel-asef@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 22:19:45 by iel-asef          #+#    #+#             */
-/*   Updated: 2025/12/17 22:55:00 by iel-asef         ###   ########.fr       */
+/*   Updated: 2025/12/22 23:37:07 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,19 @@ class ICharacter;
 
 class AMateria
 {
-protected:
-    std::string type;
+    protected:
+        std::string type;
+        
+    public:
+        AMateria(std::string const & type);
+        AMateria(AMateria const &copy);
+        AMateria & operator=(AMateria const &src);
+        virtual ~AMateria();
 
-public:
-    AMateria(std::string const & type);
-    AMateria(AMateria const &copy);
-    AMateria & operator=(AMateria const &src);
-    virtual ~AMateria();
+        std::string const & getType() const;
 
-    std::string const & getType() const;
-
-    virtual AMateria* clone() const = 0;
-    virtual void use(ICharacter& target);
+        virtual AMateria* clone() const = 0;
+        virtual void use(ICharacter& target);
 };
 
 #endif
