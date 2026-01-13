@@ -5,32 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: iel-asef <iel-asef@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/17 11:40:04 by iel-asef          #+#    #+#             */
-/*   Updated: 2025/11/18 17:25:30 by iel-asef         ###   ########.fr       */
+/*   Created: 2025/12/04 15:40:13 by iel-asef          #+#    #+#             */
+/*   Updated: 2025/12/04 15:40:14 by iel-asef         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap() 
+ScavTrap::ScavTrap()
 {
-    name = "";
-    hitPoints = 100;
-    energyPoints = 50;
-    attackDamage = 20;
+    this->hitPoints = 100;
+    this->energyPoints = 50;
+    this->attackDamage = 20;
     std::cout << "ScavTrap default constructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string nm) : ClapTrap(nm) 
+ScavTrap::ScavTrap(const std::string &nm)
 {
-    name = nm;
-    hitPoints = 100;
-    energyPoints = 50;
-    attackDamage = 20;
-    std::cout << "ScavTrap constructor called for " << name << std::endl;
+    this->name = nm;
+    this->hitPoints = 100;
+    this->energyPoints = 50;
+    this->attackDamage = 20;
+    std::cout << "ScavTrap constructor called for " << this->name << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
+ScavTrap::ScavTrap(const ScavTrap &other)
 {
     *this = other;
     std::cout << "ScavTrap copy constructor called" << std::endl;
@@ -40,32 +39,28 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &other)
 {
     if (this != &other)
     {
-        ClapTrap::operator=(other); 
+        this->name = other.name;
+        this->hitPoints = other.hitPoints;
+        this->energyPoints = other.energyPoints;
+        this->attackDamage = other.attackDamage;
     }
     return *this;
 }
 
 ScavTrap::~ScavTrap()
 {
-    std::cout << "ScavTrap destructor called for " << name << std::endl;
+    std::cout << "ScavTrap destructor called for " << this->name << std::endl;
 }
 
 void ScavTrap::attack(const std::string &target)
 {
-    if (hitPoints > 0 && energyPoints > 0)
-    {
-        std::cout << "ScavTrap " << name << " attacks " << target
-                  << ", causing " << attackDamage << " points of damage!" << std::endl;
-        energyPoints--;
-    }
-    else
-    {
-        std::cout << "ScavTrap " << name
-                  << " has no energy or hit points left to attack." << std::endl;
-    }
+    std::cout << "ScavTrap " << this->name
+              << " attacks " << target
+              << ", causing " << this->attackDamage
+              << " points of damage!" << std::endl;
 }
 
 void ScavTrap::guardGate()
 {
-    std::cout << "ScavTrap " << name << " is now in Gate Keeper mode!" << std::endl;
+    std::cout << "ScavTrap " << this->name << " is now in Gate Keeper mode!" << std::endl;
 }

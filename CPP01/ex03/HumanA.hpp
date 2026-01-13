@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iel-asef <iel-asef@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/27 16:28:45 by iel-asef          #+#    #+#             */
+/*   Updated: 2025/10/27 16:28:45 by iel-asef         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef HUMANA_HPP
 #define HUMANA_HPP
 
@@ -12,7 +24,7 @@ class HumanA
 
     public:
         HumanA(const std::string &name, Weapon &weapon); // constructor
-        void attack() const;
+        void attack();
     };
 
 #endif

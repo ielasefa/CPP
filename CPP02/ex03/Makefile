@@ -1,26 +1,23 @@
-SRC = main.cpp  Fixed.cpp bsp.cpp Point.cpp
+SRC = Fixed.cpp main.cpp Point.cpp  bsp.cpp
+OBJ := $(SRC:.cpp=.o)
+NAME := bsp
 
-NAME = Fixed
-
-OBJ = $(SRC:.cpp=.o)
-
-FLAGS = -Wall -Werror -Wextra -std=c++98 
-
-CC = c++
-
-%.o: %.cpp
-	$(CC) $(FLAGS) -c $< -o $@ 
+CXX := c++
+CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJ) 
+	rm -f $(OBJ)
 
 fclean: clean
-	rm -rf $(NAME) 
+	rm -f $(NAME)
 
 re: fclean all
 

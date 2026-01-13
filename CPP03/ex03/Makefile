@@ -3,6 +3,7 @@ CC = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = ClapTrap.cpp main.cpp ScavTrap.cpp FragTrap.cpp  DiamondTrap.cpp
+
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
@@ -12,7 +13,6 @@ $(NAME): $(OBJS)
 
 %.o: %.cpp
 	$(CC) $(CXXFLAGS) -c $< -o $@
-
 clean:
 	rm -f $(OBJS)
 

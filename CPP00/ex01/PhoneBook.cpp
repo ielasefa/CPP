@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iel-asef <iel-asef@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/06 19:23:22 by iel-asef          #+#    #+#             */
+/*   Updated: 2025/02/06 19:23:22 by iel-asef         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PhoneBook.hpp"
 #include <iostream>
 #include <iomanip>
 
-PhoneBook::PhoneBook()
+PhoneBook::PhoneBook() // constructor
 {
     contactCount = 0;
     oldContactIndex = 0;
@@ -41,14 +53,16 @@ void PhoneBook::AddContact()
     std::cout << ">>> Contact added <<<" << std::endl;
 }
 
-void PhoneBook::SearchForContact() const
+void PhoneBook::SearchForContact() 
 {
-    if (contactCount == 0) {
+    if (contactCount == 0)
+    {
         std::cout << "No contacts to display." << std::endl;
         return;
     }
     std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
-    for (int i = 0; i < contactCount; i++) {
+    for (int i = 0; i < contactCount; i++)
+    {
         std::cout << "|" << std::setw(10) << i
                   << "|" << std::setw(10) << formatField(contact[i].getFirstName())
                   << "|" << std::setw(10) << formatField(contact[i].getLastName())
@@ -58,16 +72,18 @@ void PhoneBook::SearchForContact() const
     std::cout << "Enter index: ";
     std::string input;
     std::getline(std::cin, input);
-    if (input.length() != 1 || !isdigit(input[0])) {
+    if (input.length() != 1 || !isdigit(input[0]))
+    {
         std::cout << "Invalid index." << std::endl;
         return;
     }
     int idx = input[0] - '0';
-    if (idx < 0 || idx >= contactCount) {
+    if (idx < 0 || idx >= contactCount)
+    {
         std::cout << "Index out of range." << std::endl;
         return;
     }
-    contact[idx].displayContact();
+    contact[idx].displayContact();    
 }
 
 std::string formatField(const std::string &field)

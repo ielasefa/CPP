@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iel-asef <iel-asef@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/27 16:28:55 by iel-asef          #+#    #+#             */
+/*   Updated: 2025/10/27 16:28:55 by iel-asef         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef WEAPON_HPP
 #define WEAPON_HPP
 
@@ -13,7 +25,7 @@ class Weapon
         Weapon(const std::string& type);
         ~Weapon();
 
-        const std::string& getType() const;
+       std::string getType() const;
         void setType(const std::string& newType);
 };
 

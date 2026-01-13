@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iel-asef <iel-asef@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/12 09:46:10 by iel-asef          #+#    #+#             */
+/*   Updated: 2025/11/12 09:46:10 by iel-asef         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FIXED_HPP
 #define FIXED_HPP
 
@@ -14,8 +26,8 @@ private:
 public:
 
   Fixed();
-  Fixed(const int value); // int constructor
-  Fixed(const float value); // float constructor
+  Fixed(const int value);
+  Fixed(const float value);
   Fixed(const Fixed &other);
   Fixed& operator=(const Fixed &other);
 
@@ -31,12 +43,12 @@ public:
   Fixed operator*(const Fixed &other) const;
   Fixed operator/(const Fixed &other) const;
 
-  Fixed& operator++(); // pre increment
-  Fixed operator++(int); // post increment
-  Fixed& operator--(); // pre decrement
-  Fixed operator--(int); // post-decrement operator >>+ ()
+  Fixed& operator++(); 
+  Fixed operator++(int); 
+  Fixed& operator--(); 
+  Fixed operator--(int); 
 
-  static Fixed& min(Fixed& a, Fixed& b); // overloaded member functions
+  static Fixed& min(Fixed& a, Fixed& b); 
   static Fixed& max(Fixed& a, Fixed& b);
   static const Fixed& min(const Fixed& a, const Fixed& b);
   static const Fixed& max(const Fixed& a, const Fixed& b);
@@ -45,9 +57,9 @@ public:
 
   int getRawBits(void) const;
   void setRawBits(int const raw);
-  float toFloat(void) const; // converts the fixed-point to a floating-point
-  int toInt(void) const; // converts the fixed-point to an integer value
+  float toFloat(void) const; 
+  int toInt(void) const; 
 };
 
-std::ostream& operator<<(std::ostream &out, const Fixed fixed); // insertion operator overload
+std::ostream& operator<<(std::ostream &out, const Fixed fixed);
 #endif

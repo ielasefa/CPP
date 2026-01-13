@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Harl.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iel-asef <iel-asef@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/28 02:03:28 by iel-asef          #+#    #+#             */
+/*   Updated: 2025/10/28 02:03:28 by iel-asef         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Harl.hpp"
 
 void Harl::debug()
@@ -22,19 +34,22 @@ void Harl::error()
 
 void Harl::complain(std::string level)
 {
-    std::string levels[] = {"DEBUG", "INFO", "WARNING","ERROR" }; // array of strings
-    void (Harl::*funcs[])() =  // declare array of pointers to member functions of class Harl 
+    std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+    void (Harl::*funcs[])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+
+    for (int i = 0; i < 4; i++)
     {
-        &Harl::debug,  // init the array is pointer to member func hold adress of it
-        &Harl::info, 
-        &Harl::warning,
-        &Harl::error
-    };
-    for(int i = 0; i < 4; i++)
-    {
-        if(levels[i] == level)
+        if (levels[i] == level)
         {
-            (this->*funcs[i])(); // Call the function at position index from the array funcs, on the current object
+            (this->*funcs[i])();
+            return;
         }
-    }   
+    }
+
+    std::cout << "[ Invalid level: \"" << level << "\" ]" << std::endl;
+    std::cout << "Please enter one of the following levels:" << std::endl;
+    std::cout << "  - DEBUG" << std::endl;
+    std::cout << "  - INFO" << std::endl;
+    std::cout << "  - WARNING" << std::endl;
+    std::cout << "  - ERROR" << std::endl;
 }

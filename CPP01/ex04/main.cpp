@@ -1,11 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iel-asef <iel-asef@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/28 02:16:30 by iel-asef          #+#    #+#             */
+/*   Updated: 2025/10/28 02:16:30 by iel-asef         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <fstream>
 #include <iostream>
+#include <string>
 
 int main(int argc, char **argv)
 {
     if (argc != 4)
     {
-        std::cout << "Error: number of arguments not correct" << std::endl;
+        std::cerr << "Error: number of arguments not correct" << std::endl;
         return 1;
     }
 
@@ -13,14 +26,21 @@ int main(int argc, char **argv)
     std::string s1 = argv[2];
     std::string s2 = argv[3];
 
-    std::ifstream infile(fileName.c_str());
-    if (!infile)
+    if (s1.empty())
     {
-        std::cerr << "Error: opening file" << std::endl;
+        std::cerr << "Error: search string cannot be empty" << std::endl;
         return 1;
     }
 
-    std::ofstream oufile((fileName + ".replace").c_str());
+    std::string outFileName = fileName + ".replace";
+    std::ifstream infile(fileName.c_str());
+    if (!infile)
+    {
+        std::cerr << "Error: opening input file" << std::endl;
+        return 1;
+    }
+
+    std::ofstream oufile(outFileName.c_str());
     if (!oufile)
     {
         std::cerr << "Error: cannot create output file" << std::endl;
@@ -38,8 +58,6 @@ int main(int argc, char **argv)
         }
         oufile << line << '\n';
     }
-
-    infile.close();
-    oufile.close();
+    
     return 0;
 }

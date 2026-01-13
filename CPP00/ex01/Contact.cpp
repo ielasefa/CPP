@@ -1,7 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iel-asef <iel-asef@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/06 19:23:00 by iel-asef          #+#    #+#             */
+/*   Updated: 2025/08/06 19:23:00 by iel-asef         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Contact.hpp"
 #include <iostream>
 
-void Contact::setContact(std::string fn, std::string ln, std::string nn, std::string pn, std::string ds) {
+void Contact::setContact(std::string fn, std::string ln, std::string nn, std::string pn, std::string ds)
+{
     firstName = fn;
     lastName = ln;
     nickname = nn;
@@ -9,32 +22,32 @@ void Contact::setContact(std::string fn, std::string ln, std::string nn, std::st
     darkestSecret = ds;
 }
 
-std::string Contact::getFirstName() const
+std::string Contact::getFirstName() 
 {
     return firstName;
 }
 
-std::string Contact::getLastName() const
+std::string Contact::getLastName() 
 {
     return lastName;
 }
 
-std::string Contact::getNickname() const
+std::string Contact::getNickname() 
 {
     return nickname;
 }
 
-std::string Contact::getPhoneNumber() const 
+std::string Contact::getPhoneNumber() 
 {
     return phoneNumber;
 }
 
-std::string Contact::getDarkestSecret() const
+std::string Contact::getDarkestSecret() 
 {
     return darkestSecret;
 }
 
-void Contact::displayContact() const
+void Contact::displayContact() 
 {
     std::cout << "First Name    : " << firstName << std::endl;
     std::cout << "Last Name     : " << lastName << std::endl;

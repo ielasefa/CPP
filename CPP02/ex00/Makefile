@@ -1,11 +1,8 @@
 SRC = main.cpp  Fixed.cpp
-
 NAME = Fixed
-
 OBJ = $(SRC:.cpp=.o)
 
 FLAGS = -Wall -Werror -Wextra -std=c++98 
-
 CC = c++
 
 %.o: %.cpp

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iel-asef <iel-asef@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/06 19:23:10 by iel-asef          #+#    #+#             */
+/*   Updated: 2025/08/06 19:23:10 by iel-asef         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PhoneBook.hpp"
 #include <iostream>
 
@@ -7,7 +19,9 @@ int main()
     std::string command;
 
     std::cout << "Option : [ADD] - [SEARCH] - [EXIT]\n";
-    while (true) {
+    while (true)
+    {
+        std::cout << ">> enter command: ";
         std::getline(std::cin, command);
         if (std::cin.eof() || command == "EXIT")
             break;

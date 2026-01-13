@@ -6,7 +6,7 @@
 /*   By: iel-asef <iel-asef@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 17:30:00 by iel-asef          #+#    #+#             */
-/*   Updated: 2025/11/18 21:06:19 by iel-asef         ###   ########.fr       */
+/*   Updated: 2025/12/10 19:20:50 by iel-asef         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 int main()
 {
-    FragTrap obj1;
+    FragTrap obj1("ilyas");
 
     obj1.attack("ILYAS");
-    obj1.beRepaired(23);
+    obj1.takeDamage(50);
+    obj1.beRepaired(40);
     obj1.highFivesGuys();
 }
 

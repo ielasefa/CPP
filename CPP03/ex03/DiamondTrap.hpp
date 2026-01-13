@@ -3,18 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: iel-asef <iel-asef@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/18 21:35:01 by iel-asef          #+#    #+#             */
-/*   Updated: 2025/12/01 01:31:56 by marvin           ###   ########.fr       */
+/*   Created: 2025/12/04 15:39:28 by iel-asef          #+#    #+#             */
+/*   Updated: 2025/12/04 15:39:45 by iel-asef         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DIAMONDTRAP_HPP
 #define DIAMONDTRAP_HPP
 
-#include <iostream>
-#include <string>
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
@@ -34,4 +32,4 @@ class DiamondTrap : public ScavTrap, public FragTrap
         void whoAmI();
 };
 
-#endif 
+#endif

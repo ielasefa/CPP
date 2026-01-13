@@ -6,13 +6,13 @@
 /*   By: iel-asef <iel-asef@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 11:40:04 by iel-asef          #+#    #+#             */
-/*   Updated: 2025/11/18 17:25:30 by iel-asef         ###   ########.fr       */
+/*   Updated: 2025/12/09 18:51:01 by iel-asef         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap() 
+ScavTrap::ScavTrap() : ClapTrap()
 {
     name = "";
     hitPoints = 100;
