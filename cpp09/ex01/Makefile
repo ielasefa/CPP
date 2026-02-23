@@ -1,4 +1,4 @@
-NAME := MateriaApp
+NAME := RPN
 CXX := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 

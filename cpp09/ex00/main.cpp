@@ -6,7 +6,7 @@
 /*   By: iel-asef <iel-asef@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 17:39:30 by iel-asef          #+#    #+#             */
-/*   Updated: 2026/02/20 02:45:10 by iel-asef         ###   ########.fr       */
+/*   Updated: 2026/02/23 01:38:38 by iel-asef         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,8 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    std::map<std::string, double> rates;
-    if (!BitcoinExchange::parseDataFile("data.csv" ))
-        return 1;
-
-    if (!parseDataFile("data.csv", rates))
-        return 1;
-
-    processInputFile(argv[1], rates);
+    BitcoinExchange be;
+    be.parseDatabase("data.csv");
+    be.parseInputFile(argv[1]);
     return 0;
 }
