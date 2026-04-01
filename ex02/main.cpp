@@ -6,13 +6,14 @@
 /*   By: iel-asef <iel-asef@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 03:46:00 by iel-asef          #+#    #+#             */
-/*   Updated: 2026/02/26 02:39:17 by iel-asef         ###   ########.fr       */
+/*   Updated: 2026/04/01 16:08:59 by iel-asef         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 #include <deque>
 #include <iomanip>
+#include <ctime>
 
 static void printNumbers(const std::vector<int> &v, const std::string &label)
 {
@@ -47,7 +48,7 @@ int main(int argc, char **argv)
 
         std::deque<int> deq(numbers.begin(), numbers.end());
         clock_t start_deq = clock();
-    sortDeque(deq);
+        sortDeque(deq);
         clock_t end_deq = clock();
         double timeDeque = double(end_deq - start_deq) * 1e6 / CLOCKS_PER_SEC;
 
