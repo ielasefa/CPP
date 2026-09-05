@@ -1,23 +1,28 @@
-NAME =	iter
-CC =	c++
-CXXFLAGS =	-Wall -Wextra -Werror -std=c++98
 
-SRCS =	main.cpp
+SRC =  main.cpp
 
-all: $(NAME)
+NAME = iter
 
-$(NAME): $(SRCS)
-	$(CC) $(CXXFLAGS) $(SRCS) -o $(NAME)
+OBJ = $(SRC:.cpp=.o)
+
+FLAGS = -std=c++98 -Wall -Werror -Wextra 
+
+CC = c++
 
 %.o: %.cpp
-	$(CC) $(CXXFLAGS) -c $< -o $@
+	$(CC) $(FLAGS) -c $< -o $@
 
-clean:
-	rm -f *.o
+all	: $(NAME)
 
-fclean: clean
-	rm -f $(NAME)
+$(NAME)	: $(OBJ)
+	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
-re: fclean all
+clean	:
+	rm -rf $(OBJ)
+
+fclean	: clean
+	rm -rf $(NAME)
+
+re	: fclean all
 
 .PHONY: all clean fclean re

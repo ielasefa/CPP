@@ -1,7 +1,7 @@
 
 SRC =  main.cpp
 
-NAME = whatever
+NAME = array
 
 OBJ = $(SRC:.cpp=.o)
 
