@@ -1,0 +1,54 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iel-asef <iel-asef@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/11 19:12:54 by iel-asef          #+#    #+#             */
+/*   Updated: 2026/01/11 19:13:52 by iel-asef         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ShrubberyCreationForm.hpp"
+
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target)
+    : AForm("ShrubberyCreationForm", 145, 137), _target(target)
+{
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy)
+    : AForm(copy), _target(copy._target)
+{
+}
+
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &src)
+{
+    if (this != &src)
+        AForm::operator=(src);
+    return *this;
+}
+
+ShrubberyCreationForm::~ShrubberyCreationForm()
+{
+}
+
+void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
+{
+    AForm::execute(executor);
+
+    std::ofstream ofs((_target + "_shrubbery").c_str());
+    if (!ofs)
+        throw std::runtime_error("Failed to open file");
+
+    ofs << "       _-_\n"
+           "    /~~   ~~\\\n"
+           " /~~         ~~\\\n"
+           "{               }\n"
+           " \\  _-     -_  /\n"
+           "   ~  \\\\ //  ~\n"
+           "_- -   | | _- _\n"
+           "  _ -  | |   -_\n"
+           "      // \\\\\n";
+    ofs.close();
+}
